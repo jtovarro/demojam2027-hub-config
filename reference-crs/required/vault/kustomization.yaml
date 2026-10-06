@@ -1,0 +1,10 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ESO_ClusterSecretStore.yaml
+  - ESO_NS.yaml
+  - ESO_OperatorGroup.yaml
+  - ESO_Subscription.yaml
+  - ESO_ExternalSecretsConfig.yaml
+  - ESO_defaultToken.yaml

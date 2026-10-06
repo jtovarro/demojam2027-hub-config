@@ -1,0 +1,11 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - clusters-app.yaml
+  - policies-app-project.yaml
+  - policies-app.yaml
+  - ztp-app-project.yaml
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
