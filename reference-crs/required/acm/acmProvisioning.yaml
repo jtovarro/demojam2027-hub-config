@@ -7,7 +7,8 @@ metadata:
     argocd.argoproj.io/sync-wave: "-30"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
-  watchAllNamespaces: true
+  watchAllNamespaces: "true"
+  provisioningNetwork: "Disabled"
   # some servers do not support virtual media installations
   # when the image is served using the https protocol
   # disableVirtualMediaTLS: true
