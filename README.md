@@ -51,6 +51,37 @@ openshift-gitops-server-845d6798-9c5tv                        1/1     Running   
 
 ## Tune your own overlay layer
 
+### Label selected nodes
+
+The `hub1-overlays-config/node-labels/` overlay enables the reusable ACM policy in
+`reference-crs/optional/node-labels/`. Edit
+`hub1-overlays-config/node-labels/node-labels-policy-patch.yaml` to set the node names
+and labels. Add one `object-templates` entry for each node; for example, the label
+shown below is the ODF storage label:
+
+```yaml
+object-templates:
+  - complianceType: musthave
+    objectDefinition:
+      apiVersion: v1
+      kind: Node
+      metadata:
+        name: worker-0
+        labels:
+          cluster.ocs.openshift.io/openshift-storage: ""
+  - complianceType: musthave
+    objectDefinition:
+      apiVersion: v1
+      kind: Node
+      metadata:
+        name: worker-1
+        labels:
+          cluster.ocs.openshift.io/openshift-storage: ""
+```
+
+The policy is scoped to the hub's `local-cluster` and enforces labels on existing
+nodes; it does not create or manage Node resources directly.
+
 Before creating the Telco Hub ArgoCD Application, you have to select the different optional component, and configure all of them.
 
 At this point, you will need to fork this repo to tune the different kustomize patches and to select the optional components. There exists a root `kustomize.yaml` with all the information:

@@ -1,0 +1,43 @@
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: node-labels
+  namespace: hub-policies
+spec:
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: node-labels-configuration
+        spec:
+          remediationAction: enforce
+          severity: low
+          object-templates:
+            # Add one entry per node; set the desired node name and labels here.
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: Node
+                metadata:
+                  name: ip-10-0-4-55.eu-west-1.compute.internal
+                  labels:
+                    cluster.ocs.openshift.io/openshift-storage: ""
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: Node
+                metadata:
+                  name: ip-10-0-34-195.eu-west-1.compute.internal
+                  labels:
+                    cluster.ocs.openshift.io/openshift-storage: ""
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: Node
+                metadata:
+                  name: ip-10-0-90-83.eu-west-1.compute.internal
+                  labels:
+                    cluster.ocs.openshift.io/openshift-storage: ""
