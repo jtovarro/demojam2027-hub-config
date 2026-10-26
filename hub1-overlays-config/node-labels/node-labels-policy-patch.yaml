@@ -22,7 +22,7 @@ spec:
                 apiVersion: v1
                 kind: Node
                 metadata:
-                  name: ip-10-0-4-55.eu-west-1.compute.internal
+                  name: ip-10-0-6-27.eu-west-1.compute.internal
                   labels:
                     cluster.ocs.openshift.io/openshift-storage: ""
             - complianceType: musthave
@@ -30,7 +30,7 @@ spec:
                 apiVersion: v1
                 kind: Node
                 metadata:
-                  name: ip-10-0-34-195.eu-west-1.compute.internal
+                  name: ip-10-0-42-184.eu-west-1.compute.internal
                   labels:
                     cluster.ocs.openshift.io/openshift-storage: ""
             - complianceType: musthave
@@ -38,6 +38,6 @@ spec:
                 apiVersion: v1
                 kind: Node
                 metadata:
-                  name: ip-10-0-90-83.eu-west-1.compute.internal
+                  name: ip-10-0-71-243.eu-west-1.compute.internal
                   labels:
                     cluster.ocs.openshift.io/openshift-storage: ""
